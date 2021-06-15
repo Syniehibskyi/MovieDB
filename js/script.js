@@ -24,3 +24,58 @@ const movieDB = {
     ]
 };
 
+// document.querySelector('.promo__adv').remove();
+
+
+const firstChild = document.querySelector('.promo__adv div')
+firstChild.remove();
+
+const advImgs = document.querySelectorAll('.promo__adv img');
+
+advImgs.forEach(item => {
+    item.remove();
+});
+
+const genre = document.querySelector('.promo__genre');
+
+genre.textContent = 'драма';
+
+const bg = document.querySelector('.promo__bg');
+
+bg.style.backgroundImage = 'url(../img/bg.jpg)';
+
+const ul = document.querySelector('.promo__interactive-list');
+const li = document.querySelectorAll('.promo__interactive-list li');
+movieDB.movies.sort();
+
+// for(let i = 0; i < movieDB.movies.length; i++){
+
+    
+//     if(li[i] === undefined){
+//         const a = document.createElement('li');
+//         a.classList.add("promo__interactive-item");
+//         a.innerHTML = `${i + 1 }) ${movieDB.movies[i]} <div class="delete"></div>`;
+        
+//         ul.append(a);
+        
+//     } else{
+//         li[i].innerHTML = `${i + 1 }) ${movieDB.movies[i]}<div class="delete"></div>`;
+        
+//     }
+    
+// }
+
+// способ 2 
+
+ul.innerHTML = '';
+movieDB.movies.sort();
+
+movieDB.movies.forEach((film, i) => {
+    ul.innerHTML += `
+    <li class="promo__interactive-item">${i + 1}) ${film}
+        <div class="delete"></div>
+    </li>
+    `;
+})
+
+
